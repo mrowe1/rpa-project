@@ -153,8 +153,10 @@ def create_invoice(invoice_num, order_data, directory= directory):
 
 def send_email(invoice_num, name, email, date, directory= directory):
     
-    gmail_user = 'mrowe4554@gmail.com'
-    gmail_password = open("C:\\Users\\mrowe\\School\\2026-2027 (Y1 MAcc)\\Fall 2026\\Analytics (Python)\\Advanced Analytics\\gmail_password.txt").read()
+    # gmail_user = 'mrowe4554@gmail.com'
+    # gmail_password_path = select_file('Please select the gmail password file')
+    # gmail_password = open(gmail_password_path).read()
+    
     invoice_subject = f'Invoice {invoice_num}'
 
     # List of recipients
@@ -204,6 +206,11 @@ def send_email(invoice_num, name, email, date, directory= directory):
 # INSERT ANSWER FOR QUESTION 6 HERE
 invoice_num = 8515
 filenames = os.listdir(directory)
+
+gmail_user = 'mrowe4554@gmail.com'
+gmail_password_path = select_file('Please select the gmail password file')
+gmail_password = open(gmail_password_path).read()
+
 for file in filenames:
     if 'Order' in file and 'xlsx' in file:
         order_data, name, email, date = get_order_data(invoice_num, file)
